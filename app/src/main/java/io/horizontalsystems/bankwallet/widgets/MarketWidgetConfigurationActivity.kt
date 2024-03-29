@@ -33,7 +33,6 @@ import androidx.glance.GlanceId
 import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.appwidget.state.updateAppWidgetState
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.TranslatableString
 import io.horizontalsystems.bankwallet.ui.compose.components.AppBar
@@ -127,7 +126,7 @@ class MarketWidgetConfigurationActivity : AppCompatActivity() {
                 }
                 MarketWidget().update(context, glanceId)
                 MarketWidgetManager().refresh(glanceId)
-                MarketWidgetWorker.enqueueWork(App.instance)
+                MarketWidgetWorker.enqueueWork(io.horizontalsystems.bankwallet.core.App.instance)
             }
 
             val resultValue = Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)

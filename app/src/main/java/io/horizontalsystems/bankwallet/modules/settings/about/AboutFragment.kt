@@ -29,6 +29,7 @@ import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.BaseComposeFragment
 import io.horizontalsystems.bankwallet.core.composablePage
 import io.horizontalsystems.bankwallet.core.composablePopup
+import io.horizontalsystems.bankwallet.core.managers.RateAppManager
 import io.horizontalsystems.bankwallet.core.slideFromBottom
 import io.horizontalsystems.bankwallet.modules.releasenotes.ReleaseNotesScreen
 import io.horizontalsystems.bankwallet.modules.settings.appstatus.AppStatusScreen
@@ -41,9 +42,7 @@ import io.horizontalsystems.bankwallet.ui.compose.components.CellSingleLineLawre
 import io.horizontalsystems.bankwallet.ui.compose.components.CellUniversalLawrenceSection
 import io.horizontalsystems.bankwallet.ui.compose.components.HsBackButton
 import io.horizontalsystems.bankwallet.ui.compose.components.InfoTextBody
-import io.horizontalsystems.bankwallet.ui.compose.components.VSpacer
 import io.horizontalsystems.bankwallet.ui.compose.components.subhead2_grey
-import io.horizontalsystems.bankwallet.ui.helpers.LinkHelper
 
 class AboutFragment : BaseComposeFragment() {
 
@@ -125,17 +124,15 @@ private fun SettingSections(
     CellUniversalLawrenceSection(
         listOf {
             HsSettingCell(
-                R.string.SettingsAboutApp_WhatsNew,
-                R.drawable.ic_info_20,
-                onClick = {
-                    navController.navigate(ReleaseNotesPage)
-                }
+                R.string.Settings_Privacy,
+                R.drawable.ic_user_20,
+                onClick = { RateAppManager.openPrivacy(context) }
             )
         }
     )
 
     Spacer(Modifier.height(32.dp))
-
+/*
     CellUniversalLawrenceSection(
         listOf({
             HsSettingCell(
@@ -189,7 +186,7 @@ private fun SettingSections(
         })
     )
     
-    VSpacer(32.dp)
+    VSpacer(32.dp)*/
 }
 
 @Composable
@@ -201,7 +198,7 @@ fun AboutHeader(appVersion: String) {
     ) {
         Image(
             modifier = Modifier.size(72.dp),
-            painter = painterResource(id = R.drawable.ic_app_logo_72),
+            painter = painterResource(id = R.drawable.billicat),
             contentDescription = null,
         )
         Column(

@@ -1,7 +1,6 @@
 package io.horizontalsystems.bankwallet.core.managers
 
 import com.google.gson.*
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.entities.Guide
 import io.horizontalsystems.bankwallet.entities.GuideCategoryMultiLang
 import io.reactivex.Single
@@ -13,7 +12,7 @@ import java.util.*
 
 object GuidesManager {
 
-    private val guidesUrl = App.appConfigProvider.guidesUrl
+    private val guidesUrl = io.horizontalsystems.bankwallet.core.App.appConfigProvider.guidesUrl
 
     private val gson = GsonBuilder()
             .setDateFormat("yyyy-MM-dd")

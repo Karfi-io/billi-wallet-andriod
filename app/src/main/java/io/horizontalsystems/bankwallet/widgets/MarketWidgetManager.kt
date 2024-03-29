@@ -10,7 +10,6 @@ import coil.imageLoader
 import coil.request.ErrorResult
 import coil.request.ImageRequest
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -23,7 +22,7 @@ class MarketWidgetManager {
 
     fun updateWatchListWidgets() {
         coroutineScope?.launch {
-            val context = App.instance
+            val context = io.horizontalsystems.bankwallet.core.App.instance
             val manager = GlanceAppWidgetManager(context)
             val glanceIds = manager.getGlanceIds(MarketWidget::class.java)
 
@@ -38,7 +37,7 @@ class MarketWidgetManager {
 
     fun refresh(glanceId: GlanceId) {
         coroutineScope?.launch {
-            val context = App.instance
+            val context = io.horizontalsystems.bankwallet.core.App.instance
             try {
                 executeWithRetry {
                     updateData(glanceId)
@@ -59,8 +58,8 @@ class MarketWidgetManager {
     }
 
     private suspend fun updateData(glanceId: GlanceId) {
-        val context = App.instance
-        val marketRepository = App.marketWidgetRepository
+        val context = io.horizontalsystems.bankwallet.core.App.instance
+        val marketRepository = io.horizontalsystems.bankwallet.core.App.marketWidgetRepository
         var state = getAppWidgetState(context, MarketWidgetStateDefinition, glanceId)
         val imagePathCache = buildMap {
             state.items.forEach { item ->
@@ -140,7 +139,7 @@ class MarketWidgetManager {
             val types = MarketWidgetType.values().toMutableList()
             // TopNfts type is hidden for now. It will be removed in next sprints
             types.remove(MarketWidgetType.TopNfts)
-            if (!App.localStorage.marketsTabEnabled) {
+            if (!io.horizontalsystems.bankwallet.core.App.localStorage.marketsTabEnabled) {
                 types.remove(MarketWidgetType.Watchlist)
             }
 

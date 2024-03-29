@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import io.horizontalsystems.bankwallet.core.AdapterState
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.managers.BalanceHiddenManager
 import io.horizontalsystems.bankwallet.core.managers.ConnectivityManager
 import io.horizontalsystems.bankwallet.core.providers.CexAsset
@@ -99,10 +98,10 @@ class CexAssetViewModel(
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return CexAssetViewModel(
                 cexAsset,
-                App.balanceHiddenManager,
-                BalanceXRateRepository("cex-asset", App.currencyManager, App.marketKit),
+                io.horizontalsystems.bankwallet.core.App.balanceHiddenManager,
+                BalanceXRateRepository("cex-asset", io.horizontalsystems.bankwallet.core.App.currencyManager, io.horizontalsystems.bankwallet.core.App.marketKit),
                 BalanceViewItemFactory(),
-                App.connectivityManager,
+                io.horizontalsystems.bankwallet.core.App.connectivityManager,
 
                 ) as T
         }

@@ -62,6 +62,7 @@ import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.DisposableLifecycleCallbacks
 import io.horizontalsystems.bankwallet.ui.compose.components.HsBottomNavigation
 import io.horizontalsystems.bankwallet.ui.compose.components.HsBottomNavigationItem
+import io.horizontalsystems.bankwallet.ui.compose.components.caption_grey
 import io.horizontalsystems.bankwallet.ui.extensions.WalletSwitchBottomSheet
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -170,6 +171,9 @@ private fun MainScreen(
                                             )
                                         }
                                     },
+                                    label = {
+                                            caption_grey(text = stringResource(item.mainNavItem.titleRes))
+                                    },
                                     selected = item.selected,
                                     enabled = item.enabled,
                                     selectedContentColor = ComposeAppTheme.colors.jacob,
@@ -235,7 +239,7 @@ private fun MainScreen(
         val context = LocalContext.current
         RateApp(
             onRateClick = {
-                RateAppManager.openPlayMarket(context)
+                RateAppManager.openBillipad(context)
                 viewModel.closeRateDialog()
             },
             onCancelClick = { viewModel.closeRateDialog() }
@@ -291,7 +295,10 @@ private fun HideContentBox(contentHidden: Boolean) {
     } else {
         Modifier
     }
-    Box(Modifier.fillMaxSize().then(backgroundModifier))
+    Box(
+        Modifier
+            .fillMaxSize()
+            .then(backgroundModifier))
 }
 
 @Composable

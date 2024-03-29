@@ -67,8 +67,8 @@ class MainViewModel(
     private val items: List<MainNavigation>
         get() = if (marketsTabEnabled) {
             listOf(
-                MainNavigation.Market,
                 MainNavigation.Balance,
+                MainNavigation.Market,
                 MainNavigation.Transactions,
                 MainNavigation.Settings,
             )

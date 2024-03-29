@@ -22,7 +22,6 @@ import cash.z.ecc.android.sdk.tool.DerivationTool
 import cash.z.ecc.android.sdk.type.AddressType
 import co.electriccoin.lightwallet.client.model.LightWalletEndpoint
 import io.horizontalsystems.bankwallet.core.AdapterState
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.AppLogger
 import io.horizontalsystems.bankwallet.core.BalanceData
 import io.horizontalsystems.bankwallet.core.IAdapter
@@ -374,7 +373,7 @@ class ZcashAdapter(
 
         fun clear(accountId: String) {
             runBlocking {
-                Synchronizer.erase(App.instance, ZcashNetwork.Mainnet, getValidAliasFromAccountId(accountId))
+                Synchronizer.erase(io.horizontalsystems.bankwallet.core.App.instance, ZcashNetwork.Mainnet, getValidAliasFromAccountId(accountId))
             }
         }
     }

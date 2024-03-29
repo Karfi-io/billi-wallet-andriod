@@ -30,7 +30,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.BaseComposeFragment
 import io.horizontalsystems.bankwallet.core.providers.CexAsset
 import io.horizontalsystems.bankwallet.core.slideFromRight
@@ -57,7 +56,7 @@ class CexAssetFragment : BaseComposeFragment() {
     override fun GetContent(navController: NavController) {
         val asset = requireArguments().parcelable<CexAsset>(ASSET_KEY)
         if (asset == null) {
-            Toast.makeText(App.instance, "Asset is Null", Toast.LENGTH_SHORT).show()
+            Toast.makeText(io.horizontalsystems.bankwallet.core.App.instance, "Asset is Null", Toast.LENGTH_SHORT).show()
             navController.popBackStack()
             return
         }

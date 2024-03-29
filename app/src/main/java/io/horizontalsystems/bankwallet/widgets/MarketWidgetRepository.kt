@@ -1,7 +1,6 @@
 package io.horizontalsystems.bankwallet.widgets
 
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.iconUrl
 import io.horizontalsystems.bankwallet.core.imageUrl
 import io.horizontalsystems.bankwallet.core.managers.CurrencyManager
@@ -66,7 +65,7 @@ class MarketWidgetRepository(
                 title = item.platform.name,
                 subtitle = Translator.getString(R.string.MarketTopPlatforms_Protocols, item.protocols),
                 label = item.rank.toString(),
-                value = App.numberFormatter.formatFiatShort(
+                value = io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatShort(
                     item.marketCap,
                     currency.symbol,
                     2
@@ -146,10 +145,10 @@ class MarketWidgetRepository(
 
         when (marketField) {
             MarketField.MarketCap -> {
-                marketCap = App.numberFormatter.formatFiatShort(marketItem.marketCap.value, marketItem.marketCap.currency.symbol, 2)
+                marketCap = io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatShort(marketItem.marketCap.value, marketItem.marketCap.currency.symbol, 2)
             }
             MarketField.Volume -> {
-                volume = App.numberFormatter.formatFiatShort(marketItem.volume.value, marketItem.volume.currency.symbol, 2)
+                volume = io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatShort(marketItem.volume.value, marketItem.volume.currency.symbol, 2)
             }
             MarketField.PriceDiff -> {
                 diff = marketItem.diff
@@ -161,7 +160,7 @@ class MarketWidgetRepository(
             title = marketItem.fullCoin.coin.name,
             subtitle = marketItem.fullCoin.coin.code,
             label = marketItem.fullCoin.coin.marketCapRank?.toString() ?: "",
-            value = App.numberFormatter.formatFiatFull(
+            value = io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatFull(
                 marketItem.rate.value,
                 marketItem.rate.currency.symbol
             ),

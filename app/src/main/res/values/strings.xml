@@ -1,5 +1,5 @@
 <resources>
-    <string name="App_Name" translatable="false">Unstoppable</string>
+    <string name="App_Name" translatable="false">BilliWallet</string>
 
     <!--Common-->
 
@@ -87,12 +87,12 @@
     <!--Intro-->
 
     <string name="Intro_Wallet_Screen1Description">Be Unstoppable</string>
-    <string name="Intro_Wallet_Screen2Title">Unchain Assets</string>
-    <string name="Intro_Wallet_Screen2Description">Don\'t lock yourself in and don\'t let others do that to you.</string>
-    <string name="Intro_Wallet_Screen3Title">Go Borderless</string>
-    <string name="Intro_Wallet_Screen3Description">Bypass conditional barriers and access markets globally.</string>
-    <string name="Intro_Wallet_Screen4Title">Stay Private</string>
-    <string name="Intro_Wallet_Screen4Description">Do not leak your private and financial data to the world.</string>
+    <string name="Intro_Wallet_Screen2Title">Multichain</string>
+    <string name="Intro_Wallet_Screen2Description">Store assets across Ethereum, Polygon. BSC, Fantom and other chains.</string>
+    <string name="Intro_Wallet_Screen3Title">Get Live Data</string>
+    <string name="Intro_Wallet_Screen3Description">Get live market data for tokens and platforms on the space.</string>
+    <string name="Intro_Wallet_Screen4Title">Privacy</string>
+    <string name="Intro_Wallet_Screen4Description">Protect your information with our secure encryption.</string>
 
     <!--Rooted Device-->
 
@@ -327,7 +327,7 @@
     <!--Balance-->
 
     <string name="Balance_Withdraw">Withdraw</string>
-    <string name="Balance_Title">Balance</string>
+    <string name="Balance_Title">Assets</string>
     <string name="Balance_Send">Send</string>
     <string name="Balance_Swap">Swap</string>
     <string name="Balance_Deposit">Deposit</string>
@@ -828,21 +828,25 @@
     <string name="Settings_Theme">Theme</string>
     <string name="Settings_Terms">Terms</string>
     <string name="Settings_Privacy">Privacy</string>
-    <string name="Settings_ShareThisWallet">Tell Friends</string>
-    <string name="Settings_InfoTitleWithVersion" translatable="false">Unstoppable %s</string>
+    <string name="Settings_ShareThisWallet">BilliDex</string>
+    <string name="Settings_InfoTitleWithVersion" translatable="false">BilliWallet %s</string>
     <string name="Settings_InfoSubtitle" translatable="false">decentralized app</string>
     <string name="Settings_CompanyName" translatable="false">horizontal systems</string>
     <string name="Settings_Faq" translatable="false">FAQ</string>
     <string name="Settings_AppStatus">App Status</string>
     <string name="Settings_WalletConnect" translatable="false">WalletConnect</string>
-    <string name="Settings_RateUs">Rate Us</string>
+    <string name="Settings_RateUs">BilliPad</string>
     <string name="Settings_LaunchScreen">Launch Screen</string>
     <string name="Settings_Appearance">Appearance</string>
     <string name="Settings_Contact_ViaTelegram">via Telegram</string>
     <string name="Settings_Contact_ViaEmail">via E-mail</string>
+    <string name="Settings_BilliWallet_Twitter">BilliWallet Twitter</string>
+    <string name="Settings_Billicat_Twitter">Billicat Twitter</string>
+    <string name="Settings_Telegram">BilliWallet Telegram</string>
+    <string name="Settings_BTelegram">Billicat Updates</string>
     <string name="Settings_AutoLock">Auto-Lock</string>
 
-    <string name="Settings_PersonalSupport">Personal Support</string>
+    <string name="Settings_PersonalSupport">Support</string>
     <string name="Settings_PersonalSupport_EnterTelegramAccountDescription">Enter your Telegram account name to start a personal support chat with our team. We\'ll get back to you and start working on your problem as soon as we see it.</string>
     <string name="Settings_PersonalSupport_YouAlreadyRequestedSupportDescription">You\'ve already requested a private chat, find it on Telegram</string>
     <string name="Settings_PersonalSupport_Account">Account</string>
@@ -882,7 +886,7 @@
     <string name="BalanceViewType_CoinValue">Coin Value</string>
     <string name="BalanceViewType_FiatValue">Fiat Value</string>
 
-    <string name="SettingsAboutApp_Title">About App</string>
+    <string name="SettingsAboutApp_Title">About</string>
     <string name="SettingsAboutApp_Github" translatable="false">Github</string>
     <string name="SettingsAboutApp_Twitter" translatable="false">Twitter</string>
     <string name="SettingsAboutApp_Site">Website</string>
@@ -1010,10 +1014,16 @@
 
     <!--Setting_Terms-->
 
-    <string name="SettingsTerms_Text">The Unstoppable wallet is built for those looking to invest and store cryptocurrencies in a private and independent manner.
-\n\nIt\'s a non-custodial, peer-to-peer wallet where only the user has control over the funds. It doesn\'t collect any data and keeps the user independent by not locking the user\'s funds to a specific wallet app.
-\n\nThe Unstoppable wallet is fully open-source and anyone can confirm the app works exactly as it claims to.
-\n\nWe built Unstoppable for ourselves as the other available solutions were not up to par. Both from an engineering and usability perspective, we believe this wallet to be significantly ahead of alternative products.</string>
+    <string name="SettingsTerms_Text">Billicat(BCAT) is the native token of BilliWallet, Your secure gateway to the world of cryptocurrency. Easily manage, store, and trade all your digital Assets in one sleek platform
+.\n\nBilliWallet is a cutting-edge decentralized finance (DeFi) wallet designed to empower users with full control over their financial assets.
+Built on blockchain technology, it ensures security and transparency in every transaction.
+With user-friendly features.
+
+\n\nBilliWallet enables seamless management of various cryptocurrencies, providing a unified interface for staking, lending, and swapping assets.
+
+Its decentralized nature ensures privacy and eliminates the need for intermediaries,
+        offering users a secure and autonomous financial experience in the rapidly evolving world of decentralized finance.
+        </string>
     <string name="SettingsTerms_Backup">Securely backup recovery phrases for each wallet. It\'s the only way to regain access to funds if the app malfunctions.</string>
     <string name="SettingsTerms_PrivateKeys">The wallet recovery phrases are randomly generated on the device during setup and are not stored elsewhere.</string>
     <string name="SettingsTerms_DisablingPin">Disabling unlock PIN (code) on the smartphone deletes all wallets from the app. Recovery phrases will be needed to restore access to funds.</string>
@@ -1027,7 +1037,7 @@
 
     <!--Setting_Contact-->
 
-    <string name="SettingsContact_Title">Contact Us</string>
+    <string name="SettingsContact_Title">Billisea</string>
 
     <!--Setting_Notifications-->
 

@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.core.managers
 
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.core.helpers.LocaleHelper
 import java.util.*
 
@@ -8,11 +7,11 @@ class LanguageManager {
 
     val fallbackLocale by LocaleHelper::fallbackLocale
 
-    var currentLocale: Locale = App.instance.getLocale()
+    var currentLocale: Locale = io.horizontalsystems.bankwallet.core.App.instance.getLocale()
         set(value) {
             field = value
 
-            App.instance.setLocale(currentLocale)
+            io.horizontalsystems.bankwallet.core.App.instance.setLocale(currentLocale)
         }
 
     var currentLocaleTag: String

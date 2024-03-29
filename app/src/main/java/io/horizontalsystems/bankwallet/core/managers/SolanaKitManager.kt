@@ -2,7 +2,6 @@ package io.horizontalsystems.bankwallet.core.managers
 
 import android.os.Handler
 import android.os.Looper
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.UnsupportedAccountException
 import io.horizontalsystems.bankwallet.core.providers.AppConfigProvider
 import io.horizontalsystems.bankwallet.core.subscribeIO
@@ -93,7 +92,7 @@ class SolanaKitManager(
         val signer = Signer.getInstance(seed)
 
         val kit = SolanaKit.getInstance(
-            application = App.instance,
+            application = io.horizontalsystems.bankwallet.core.App.instance,
             addressString = address,
             rpcSource = rpcSourceManager.rpcSource,
             walletId = account.id,
@@ -110,7 +109,7 @@ class SolanaKitManager(
         val address = accountType.address
 
         val kit = SolanaKit.getInstance(
-            application = App.instance,
+            application = io.horizontalsystems.bankwallet.core.App.instance,
             addressString = address,
             rpcSource = rpcSourceManager.rpcSource,
             walletId = account.id,

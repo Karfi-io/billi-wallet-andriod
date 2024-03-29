@@ -1,6 +1,6 @@
 package io.horizontalsystems.bankwallet.core.adapters
-
 import io.horizontalsystems.bankwallet.core.App
+
 import io.horizontalsystems.bankwallet.core.ISendBitcoinAdapter
 import io.horizontalsystems.bankwallet.core.UnsupportedAccountException
 import io.horizontalsystems.bankwallet.core.kitCoinType

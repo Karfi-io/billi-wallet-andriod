@@ -1,7 +1,6 @@
 package io.horizontalsystems.bankwallet.core.adapters
 
 import io.horizontalsystems.bankwallet.core.AdapterState
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.BalanceData
 import io.horizontalsystems.bankwallet.core.ISendTronAdapter
 import io.horizontalsystems.bankwallet.core.managers.TronKitWrapper
@@ -77,7 +76,7 @@ class TronAdapter(kitWrapper: TronKitWrapper) : BaseTronAdapter(kitWrapper, deci
 
         fun clear(walletId: String) {
             Network.values().forEach { network ->
-                TronKit.clear(App.instance, network, walletId)
+                TronKit.clear(io.horizontalsystems.bankwallet.core.App.instance, network, walletId)
             }
         }
     }

@@ -5,7 +5,6 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.core.BackgroundManager
 import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.channels.BufferOverflow
@@ -16,7 +15,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 class ConnectivityManager(backgroundManager: BackgroundManager) : BackgroundManager.Listener {
 
     private val connectivityManager: ConnectivityManager by lazy {
-        App.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        io.horizontalsystems.bankwallet.core.App.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
 
     private val _networkAvailabilityFlow =

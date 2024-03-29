@@ -9,7 +9,6 @@ import android.os.Parcelable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.entities.Account
 import io.horizontalsystems.bankwallet.modules.walletconnect.version2.WC2Manager
 import kotlinx.parcelize.Parcelize
@@ -20,15 +19,15 @@ object MainModule {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return MainViewModel(
-                App.pinComponent,
-                App.rateAppManager,
-                App.backupManager,
-                App.termsManager,
-                App.accountManager,
-                App.releaseNotesManager,
-                App.localStorage,
-                App.wc2SessionManager,
-                App.wc2Manager,
+                io.horizontalsystems.bankwallet.core.App.pinComponent,
+                io.horizontalsystems.bankwallet.core.App.rateAppManager,
+                io.horizontalsystems.bankwallet.core.App.backupManager,
+                io.horizontalsystems.bankwallet.core.App.termsManager,
+                io.horizontalsystems.bankwallet.core.App.accountManager,
+                io.horizontalsystems.bankwallet.core.App.releaseNotesManager,
+                io.horizontalsystems.bankwallet.core.App.localStorage,
+                io.horizontalsystems.bankwallet.core.App.wc2SessionManager,
+                io.horizontalsystems.bankwallet.core.App.wc2Manager,
                 wcDeepLink
             ) as T
         }
@@ -62,8 +61,8 @@ object MainModule {
 
     @Parcelize
     enum class MainNavigation(val iconRes: Int, val titleRes: Int) : Parcelable {
-        Market(R.drawable.ic_market_24, R.string.Market_Title),
         Balance(R.drawable.ic_wallet_24, R.string.Balance_Title),
+        Market(R.drawable.ic_market_24, R.string.Market_Title),
         Transactions(R.drawable.ic_transactions, R.string.Transactions_Title),
         Settings(R.drawable.ic_settings, R.string.Settings_Title);
 

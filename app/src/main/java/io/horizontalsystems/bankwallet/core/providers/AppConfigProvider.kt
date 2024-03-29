@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.core.providers
 
-import io.horizontalsystems.bankwallet.BuildConfig
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.ILocalStorage
 import io.horizontalsystems.bankwallet.core.order
@@ -10,8 +9,8 @@ import io.horizontalsystems.marketkit.models.BlockchainType
 class AppConfigProvider(localStorage: ILocalStorage) {
 
     val appId by lazy { localStorage.appId }
-    val appVersion by lazy { BuildConfig.VERSION_NAME }
-    val appBuild by lazy { BuildConfig.VERSION_CODE }
+    val appVersion by lazy { io.horizontalsystems.bankwallet.BuildConfig.VERSION_NAME }
+    val appBuild by lazy { io.horizontalsystems.bankwallet.BuildConfig.VERSION_CODE }
     val companyWebPageLink by lazy { Translator.getString(R.string.companyWebPageLink) }
     val appWebPageLink by lazy { Translator.getString(R.string.appWebPageLink) }
     val analyticsLink by lazy { Translator.getString(R.string.analyticsLink) }
@@ -131,6 +130,7 @@ class AppConfigProvider(localStorage: ILocalStorage) {
         Currency("INR", "₹", 2, R.drawable.icon_32_flag_india),
         Currency("JPY", "¥", 2, R.drawable.icon_32_flag_japan),
         Currency("NOK", "kr", 2, R.drawable.icon_32_flag_norway),
+        Currency("NGN", "₦", 2, R.drawable.nigeria_01_1),
         Currency("PHP", "₱", 2, R.drawable.icon_32_flag_philippine),
         Currency("RUB", "₽", 2, R.drawable.icon_32_flag_russia),
         Currency("SGD", "S$", 2, R.drawable.icon_32_flag_singapore),

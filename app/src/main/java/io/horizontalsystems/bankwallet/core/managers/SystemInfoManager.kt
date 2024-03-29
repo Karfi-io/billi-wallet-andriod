@@ -6,7 +6,6 @@ import android.os.Build
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK
 import androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.providers.AppConfigProvider
 import io.horizontalsystems.core.ISystemInfoManager
 
@@ -14,11 +13,11 @@ class SystemInfoManager(appConfigProvider: AppConfigProvider) : ISystemInfoManag
 
     override val appVersion: String = appConfigProvider.appVersion
 
-    private val biometricManager by lazy { BiometricManager.from(App.instance) }
+    private val biometricManager by lazy { BiometricManager.from(io.horizontalsystems.bankwallet.core.App.instance) }
 
     override val isSystemLockOff: Boolean
         get() {
-            val keyguardManager = App.instance.getSystemService(Activity.KEYGUARD_SERVICE) as KeyguardManager
+            val keyguardManager = io.horizontalsystems.bankwallet.core.App.instance.getSystemService(Activity.KEYGUARD_SERVICE) as KeyguardManager
             return !keyguardManager.isDeviceSecure
         }
 

@@ -1,7 +1,6 @@
 package io.horizontalsystems.bankwallet.core.adapters
 
 import io.horizontalsystems.bankwallet.core.AdapterState
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.ITransactionsAdapter
 import io.horizontalsystems.bankwallet.core.managers.SolanaKitWrapper
 import io.horizontalsystems.bankwallet.entities.LastBlockInfo
@@ -10,6 +9,8 @@ import io.horizontalsystems.bankwallet.modules.transactions.FilterTransactionTyp
 import io.horizontalsystems.marketkit.models.Token
 import io.horizontalsystems.marketkit.models.TokenType
 import io.horizontalsystems.solanakit.SolanaKit
+import io.horizontalsystems.bankwallet.core.App
+
 import io.reactivex.Flowable
 import io.reactivex.Single
 import kotlinx.coroutines.Dispatchers

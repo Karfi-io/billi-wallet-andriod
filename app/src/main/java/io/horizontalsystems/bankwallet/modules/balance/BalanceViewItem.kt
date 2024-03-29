@@ -3,7 +3,6 @@ package io.horizontalsystems.bankwallet.modules.balance
 import androidx.compose.runtime.Immutable
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.AdapterState
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.iconPlaceholder
 import io.horizontalsystems.bankwallet.core.imageUrl
 import io.horizontalsystems.bankwallet.core.providers.CexAsset
@@ -161,7 +160,7 @@ class BalanceViewItemFactory {
         val visible = !hideBalance
         val deemed = state !is AdapterState.Synced
 
-        val value = App.numberFormatter.formatCoinFull(balance, token.coin.code, coinDecimals)
+        val value = io.horizontalsystems.bankwallet.core.App.numberFormatter.formatCoinFull(balance, token.coin.code, coinDecimals)
 
         return DeemedValue(value, deemed, visible)
     }
@@ -355,7 +354,7 @@ class BalanceViewItemFactory {
             return DeemedValue(null, false, false)
         }
         val visible = !hideBalance
-        val value = App.numberFormatter.formatCoinFull(balance, coinCode, coinDecimals)
+        val value = io.horizontalsystems.bankwallet.core.App.numberFormatter.formatCoinFull(balance, coinCode, coinDecimals)
 
         return DeemedValue(value, false, visible)
     }

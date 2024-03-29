@@ -3,7 +3,6 @@ package io.horizontalsystems.bankwallet.modules.balance
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.managers.BalanceHiddenManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.StateFlow
@@ -72,12 +71,12 @@ class TotalBalance(
     private fun getPrimaryAmount(
         totalState: TotalService.State.Visible
     ) = totalState.currencyValue?.let {
-        App.numberFormatter.formatFiatShort(it.value, it.currency.symbol, 2)
+        io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatShort(it.value, it.currency.symbol, 2)
     }
 
     private fun getSecondaryAmount(
         totalState: TotalService.State.Visible
     ) = totalState.coinValue?.let {
-        "~" + App.numberFormatter.formatCoinFull(it.value, it.coin.code, it.decimal)
+        "~" + io.horizontalsystems.bankwallet.core.App.numberFormatter.formatCoinFull(it.value, it.coin.code, it.decimal)
     }
 }

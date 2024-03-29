@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,7 +16,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -36,8 +34,6 @@ import io.horizontalsystems.bankwallet.core.managers.RateAppManager
 import io.horizontalsystems.bankwallet.core.providers.Translator
 import io.horizontalsystems.bankwallet.core.slideFromBottom
 import io.horizontalsystems.bankwallet.core.slideFromRight
-import io.horizontalsystems.bankwallet.modules.contacts.ContactsFragment
-import io.horizontalsystems.bankwallet.modules.contacts.Mode
 import io.horizontalsystems.bankwallet.modules.manageaccount.dialogs.BackupRequiredDialog
 import io.horizontalsystems.bankwallet.modules.manageaccounts.ManageAccountsModule
 import io.horizontalsystems.bankwallet.modules.settings.main.MainSettingsModule.CounterType
@@ -53,7 +49,6 @@ import io.horizontalsystems.bankwallet.ui.compose.components.VSpacer
 import io.horizontalsystems.bankwallet.ui.compose.components.body_leah
 import io.horizontalsystems.bankwallet.ui.compose.components.caption_grey
 import io.horizontalsystems.bankwallet.ui.compose.components.subhead1_grey
-import io.horizontalsystems.bankwallet.ui.helpers.LinkHelper
 
 @Composable
 fun SettingsScreen(
@@ -90,19 +85,6 @@ private fun SettingSections(
     val language by viewModel.languageLiveData.observeAsState()
     val context = LocalContext.current
 
-    CellUniversalLawrenceSection(
-        listOf {
-            HsSettingCell(
-                R.string.Settings_Donate,
-                R.drawable.ic_heart_jacob_48,
-                onClick = {
-                    navController.slideFromRight(R.id.donateTokenSelectFragment)
-                }
-            )
-        }
-    )
-
-    VSpacer(32.dp)
 
     CellUniversalLawrenceSection(
         listOf({
@@ -187,15 +169,7 @@ private fun SettingSections(
                     }
                 )
             },
-            {
-                HsSettingCell(
-                    R.string.Contacts,
-                    R.drawable.ic_user_20,
-                    onClick = {
-                        navController.slideFromRight(R.id.contactsFragment, ContactsFragment.prepareParams(Mode.Full))
-                    }
-                )
-            },
+
             {
                 HsSettingCell(
                     R.string.Settings_Appearance,
@@ -215,62 +189,19 @@ private fun SettingSections(
                     }
                 )
             },
-            {
-                HsSettingCell(
-                    R.string.Settings_Language,
-                    R.drawable.ic_language,
-                    value = language,
-                    onClick = {
-                        navController.slideFromRight(R.id.languageSettingsFragment)
-                    }
-                )
-            },
+
         )
     )
 
     VSpacer(32.dp)
 
-    CellUniversalLawrenceSection(
-        listOf({
-            HsSettingCell(
-                R.string.Settings_Faq,
-                R.drawable.ic_faq_20,
-                onClick = {
-                    navController.slideFromRight(R.id.faqListFragment)
-                }
-            )
-        }, {
-            HsSettingCell(
-                R.string.Guides_Title,
-                R.drawable.ic_academy_20,
-                onClick = {
-                    navController.slideFromRight(R.id.academyFragment)
-                }
-            )
-        })
-    )
 
-    VSpacer(32.dp)
-
-    CellUniversalLawrenceSection(
-        listOf {
-            HsSettingCell(
-                R.string.Settings_ExperimentalFeatures,
-                R.drawable.ic_experimental,
-                onClick = {
-                    navController.slideFromRight(R.id.experimentalFeaturesFragment)
-                }
-            )
-        }
-    )
-
-    VSpacer(32.dp)
 
     CellUniversalLawrenceSection(
         listOf {
             HsSettingCell(
                 R.string.SettingsAboutApp_Title,
-                R.drawable.ic_about_app_20,
+                R.drawable.billicat,
                 showAlert = showAlertAboutApp,
                 onClick = {
                     navController.slideFromRight(R.id.aboutAppFragment)
@@ -285,25 +216,63 @@ private fun SettingSections(
         listOf({
             HsSettingCell(
                 R.string.Settings_RateUs,
-                R.drawable.ic_star_20,
-                onClick = { RateAppManager.openPlayMarket(context) }
+                R.drawable.billicat,
+                onClick = { RateAppManager.openBillipad(context) }
             )
         }, {
             HsSettingCell(
                 R.string.Settings_ShareThisWallet,
-                R.drawable.ic_share_20,
-                onClick = { shareAppLink(viewModel.appWebPageLink, context) }
+                R.drawable.billicat,
+                onClick = { RateAppManager.openBillidex(context) }
             )
         }, {
             HsSettingCell(
                 R.string.SettingsContact_Title,
-                R.drawable.ic_mail_24,
-                onClick = { navController.slideFromBottom(R.id.contactOptionsDialog) },
+                R.drawable.billicat,
+                onClick = { RateAppManager.openBillisea(context) },
             )
         })
     )
 
     VSpacer(32.dp)
+
+    CellUniversalLawrenceSection(
+        listOf({
+            HsSettingCell(
+                R.string.Settings_Billicat_Twitter,
+                R.drawable.twitter,
+                onClick = { RateAppManager.openBillicat(context) }
+            )
+        }, {
+            HsSettingCell(
+                R.string.Settings_BilliWallet_Twitter,
+                R.drawable.twitter,
+                onClick = { RateAppManager.openBilliWallet(context) }
+            )
+        }, {
+            HsSettingCell(
+                R.string.Settings_Telegram,
+                R.drawable.ic_telegram_20,
+                onClick = { RateAppManager.openTelegram(context) },
+            )
+        },{
+            HsSettingCell(
+                R.string.Settings_BTelegram,
+                R.drawable.ic_telegram_20,
+                onClick = {RateAppManager.openBilliTg(context) }
+            )
+        },{
+            HsSettingCell(
+            R.string.Settings_PersonalSupport,
+            R.drawable.ic_support_24,
+            onClick = {RateAppManager.openSupport(context) }
+        )
+})
+    )
+
+    VSpacer(32.dp)
+
+
 }
 
 @Composable
@@ -375,25 +344,9 @@ private fun SettingsFooter(appVersion: String, companyWebPage: String) {
             thickness = 0.5.dp,
             color = ComposeAppTheme.colors.steel20
         )
-        Text(
-            text = stringResource(R.string.Settings_InfoSubtitle),
-            style = ComposeAppTheme.typography.micro,
-            color = ComposeAppTheme.colors.grey,
-        )
-        Image(
-            modifier = Modifier
-                .padding(top = 32.dp)
-                .size(32.dp)
-                .clickable {
-                    LinkHelper.openLinkInAppBrowser(context, companyWebPage)
-                },
-            painter = painterResource(id = R.drawable.ic_company_logo),
-            contentDescription = null,
-        )
-        caption_grey(
-            modifier = Modifier.padding(top = 12.dp, bottom = 32.dp),
-            text = stringResource(R.string.Settings_CompanyName),
-        )
+
+
+
     }
 }
 

@@ -37,7 +37,7 @@ fun NavController.slideFromBottom(@IdRes resId: Int, args: Bundle? = null) {
 }
 
 fun NavController.authorizedAction(action: () -> Unit) {
-    if (App.pinComponent.isPinSet) {
+    if (io.horizontalsystems.bankwallet.core.App.pinComponent.isPinSet) {
         slideFromBottomForResult<ConfirmPinFragment.Result>(R.id.confirmPinFragment) {
             if (it.success) {
                 action.invoke()
@@ -49,7 +49,7 @@ fun NavController.authorizedAction(action: () -> Unit) {
 }
 
 fun NavController.navigateWithTermsAccepted(action: () -> Unit) {
-    if (!App.termsManager.allTermsAccepted) {
+    if (!io.horizontalsystems.bankwallet.core.App.termsManager.allTermsAccepted) {
         getNavigationResult(TermsFragment.resultBundleKey) { bundle ->
             val agreedToTerms = bundle.getInt(TermsFragment.requestResultKey)
 
@@ -64,7 +64,7 @@ fun NavController.navigateWithTermsAccepted(action: () -> Unit) {
 }
 
 fun NavController.ensurePinSet(descriptionResId: Int, action: () -> Unit) {
-    if (App.pinComponent.isPinSet) {
+    if (io.horizontalsystems.bankwallet.core.App.pinComponent.isPinSet) {
         action.invoke()
     } else {
         slideFromRightForResult<SetPinFragment.Result>(R.id.setPinFragment, SetPinFragment.Input(descriptionResId)) {

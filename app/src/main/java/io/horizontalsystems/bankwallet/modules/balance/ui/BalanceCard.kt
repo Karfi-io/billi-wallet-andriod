@@ -17,14 +17,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
@@ -43,7 +41,6 @@ import io.horizontalsystems.bankwallet.modules.walletconnect.list.ui.DraggableCa
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.components.CellMultilineClear
 import io.horizontalsystems.bankwallet.ui.compose.components.CoinImage
-import io.horizontalsystems.bankwallet.ui.compose.components.HsIconButton
 import io.horizontalsystems.bankwallet.ui.compose.components.RateColor
 import io.horizontalsystems.bankwallet.ui.compose.components.RateText
 import io.horizontalsystems.bankwallet.ui.compose.components.body_leah
@@ -61,24 +58,7 @@ fun BalanceCardSwipable(
     onConceal: () -> Unit,
 ) {
 
-    Box(
-        modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ) {
-        HsIconButton(
-            modifier = Modifier
-                .fillMaxHeight()
-                .align(Alignment.CenterEnd)
-                .width(88.dp),
-            onClick = { viewModel.disable(viewItem) },
-            content = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_circle_minus_24),
-                    tint = Color.Gray,
-                    contentDescription = "delete",
-                )
-            }
-        )
+
 
         DraggableCardSimple(
             key = viewItem.wallet,
@@ -91,7 +71,7 @@ fun BalanceCardSwipable(
             }
         )
     }
-}
+
 
 @Composable
 fun BalanceCard(
@@ -104,7 +84,6 @@ fun BalanceCard(
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(ComposeAppTheme.colors.lawrence)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null

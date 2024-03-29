@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.core.adapters
 
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.ICoinManager
 import io.horizontalsystems.bankwallet.core.managers.EvmLabelManager
 import io.horizontalsystems.bankwallet.core.managers.TronKitWrapper
@@ -122,7 +121,7 @@ class TronTransactionConverter(
 
                     decoration.fromAddress != address && decoration.toAddress != address -> {
                         TronExternalContractCallTransactionRecord(
-                            transaction, baseToken, source, App.spamManager,
+                            transaction, baseToken, source, io.horizontalsystems.bankwallet.core.App.spamManager,
                             getInternalEvents(internalTransactions) +
                                     getIncomingEip20Events(incomingEip20Transfers),
                             getOutgoingEip20Events(outgoingEip20Transfers)

@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
-import androidx.core.content.ContextCompat
 import io.horizontalsystems.bankwallet.core.IAdapterManager
 import io.horizontalsystems.bankwallet.core.ILocalStorage
 import io.horizontalsystems.bankwallet.core.IRateAppManager
@@ -98,12 +97,110 @@ class RateAppManager(
 
     companion object {
 
-        fun openPlayMarket(context: Context) {
+        fun openBillipad(context: Context) {
             try {
-                ContextCompat.startActivity(context, getPlayMarketAppIntent(), null)
+                val appPlayStoreLink =
+                    "https://billipad.billidex.finance/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
             } catch (e: ActivityNotFoundException) {
                 val appPlayStoreLink =
-                    "http://play.google.com/store/apps/details?id=io.horizontalsystems.bankwallet"
+                    "https://billipad.billidex.finance/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openBillidex(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "https://billidex.finance/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "https://billidex.finance/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openBillisea(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "https://billisea.io/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "https://billisea.io/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openBillicat(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "https://x.com/Billicatcoin?t=I_DHMCMC7kESx_fBPuNnFA&s=09"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "https://x.com/Billicatcoin?t=I_DHMCMC7kESx_fBPuNnFA&s=09"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openBilliWallet(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "https://x.com/BilliWallet?t=GkypB2YMeoFhF2scy-np_A&s=09"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "https://x.com/BilliWallet?t=GkypB2YMeoFhF2scy-np_A&s=09"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openBilliTg(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "https://t.me/Billicatcoin"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "https://t.me/Billicatcoin"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openPrivacy(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "http://policy.billiwallet.com/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "http://policy.billiwallet.com/"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openTelegram(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "https://t.me/+49QatBPmJN04OGFk"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "https://t.me/+49QatBPmJN04OGFk"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            }
+        }
+
+        fun openSupport(context: Context) {
+            try {
+                val appPlayStoreLink =
+                    "support@billiwallet.org"
+                LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
+            } catch (e: ActivityNotFoundException) {
+                val appPlayStoreLink =
+                    "support@billiwallet.org"
                 LinkHelper.openLinkInAppBrowser(context, appPlayStoreLink)
             }
         }

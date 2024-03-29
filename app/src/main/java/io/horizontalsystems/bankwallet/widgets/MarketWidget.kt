@@ -44,7 +44,6 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.modules.market.Value
 import java.math.BigDecimal
 import java.text.SimpleDateFormat
@@ -295,7 +294,7 @@ class MarketWidget : GlanceAppWidget() {
         when {
             diff != null -> {
                 Text(
-                    text = App.numberFormatter.formatValueAsDiff(Value.Percent(diff)),
+                    text = io.horizontalsystems.bankwallet.core.App.numberFormatter.formatValueAsDiff(Value.Percent(diff)),
                     style = TextStyle(color = diffColor(diff), fontSize = 14.sp, fontWeight = FontWeight.Normal),
                     maxLines = 1
                 )

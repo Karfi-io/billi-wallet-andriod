@@ -12,20 +12,20 @@ class IntroViewModel(
         IntroModule.IntroSliderData(
             R.string.Intro_Wallet_Screen2Title,
             R.string.Intro_Wallet_Screen2Description,
-            R.drawable.ic_independence_light,
-            R.drawable.ic_independence
+            R.drawable.undraw_crypto_portfolio_2jy5,
+            R.drawable.undraw_crypto_portfolio_2jy5
         ),
         IntroModule.IntroSliderData(
             R.string.Intro_Wallet_Screen3Title,
             R.string.Intro_Wallet_Screen3Description,
-            R.drawable.ic_knowledge_light,
-            R.drawable.ic_knowledge
+            R.drawable.undraw_stock_prices_re_js33,
+            R.drawable.undraw_stock_prices_re_js33
         ),
         IntroModule.IntroSliderData(
             R.string.Intro_Wallet_Screen4Title,
             R.string.Intro_Wallet_Screen4Description,
-            R.drawable.ic_privacy_light,
-            R.drawable.ic_privacy
+            R.drawable.undraw_security_on_re_e491,
+            R.drawable.undraw_security_on_re_e491
         ),
     )
 

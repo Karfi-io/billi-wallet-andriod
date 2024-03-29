@@ -107,18 +107,7 @@ fun TechnicalIndicatorsChart(
                     .padding(end = 8.dp)
                     .weight(1f)
             )
-            ButtonSecondaryWithIcon(
-                modifier = Modifier.height(28.dp),
-                title = stringResource(selectedPeriod.title),
-                iconRight = painterResource(R.drawable.ic_down_arrow_20),
-                onClick = {
-                    PeriodSelectDialog.onSelectPeriod(navController) { period ->
-                        onPeriodChange.invoke(period)
-                    }
-                    val params = PeriodSelectDialog.prepareParams(selectedPeriod)
-                    navController.slideFromBottom(R.id.periodSelectDialog, params)
-                }
-            )
+
         }
     }
 }
@@ -208,10 +197,7 @@ private fun BottomSheetScreen(
                 },
                 modifier = Modifier.padding(horizontal = 16.dp),
             ) {
-                body_leah(
-                    modifier = Modifier.weight(1f),
-                    text = stringResource(item.title)
-                )
+
                 if (item == selectedItem) {
                     Image(
                         modifier = Modifier.padding(start = 5.dp),

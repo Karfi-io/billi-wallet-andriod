@@ -21,7 +21,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.slideFromRight
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.components.ButtonPrimaryDefault
@@ -46,7 +45,7 @@ class ContactOptionsDialog : BaseComposableBottomSheetFragment() {
             setContent {
                 ContactOptionsScreen(
                     findNavController(),
-                    App.appConfigProvider.reportEmail
+                    io.horizontalsystems.bankwallet.core.App.appConfigProvider.reportEmail
                 ) { close() }
             }
         }

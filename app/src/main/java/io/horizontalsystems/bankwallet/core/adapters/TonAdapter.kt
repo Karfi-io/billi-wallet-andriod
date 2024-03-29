@@ -1,7 +1,7 @@
 package io.horizontalsystems.bankwallet.core.adapters
 
-import io.horizontalsystems.bankwallet.core.AdapterState
 import io.horizontalsystems.bankwallet.core.App
+import io.horizontalsystems.bankwallet.core.AdapterState
 import io.horizontalsystems.bankwallet.core.BalanceData
 import io.horizontalsystems.bankwallet.core.IAdapter
 import io.horizontalsystems.bankwallet.core.IBalanceAdapter
@@ -59,7 +59,8 @@ class TonAdapter(
 
     init {
         val accountType = wallet.account.type
-        val tonKitFactory = TonKitFactory(DriverFactory(App.instance), ConnectionManager(App.instance))
+        val tonKitFactory = TonKitFactory(DriverFactory(App.instance), ConnectionManager(
+            App.instance))
         tonKit = when (accountType) {
             is AccountType.Mnemonic -> {
                 val hdWallet = HDWallet(accountType.seed, 607, HDWallet.Purpose.BIP44, Curve.Ed25519)

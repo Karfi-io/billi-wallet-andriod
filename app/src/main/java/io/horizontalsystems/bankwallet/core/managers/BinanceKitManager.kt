@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.core.managers
 
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.IBinanceKitManager
 import io.horizontalsystems.bankwallet.core.UnsupportedAccountException
 import io.horizontalsystems.bankwallet.entities.Account
@@ -46,7 +45,7 @@ class BinanceKitManager : IBinanceKitManager {
     private fun createKitInstance(accountType: AccountType.Mnemonic, account: Account): BinanceChainKit {
         val networkType = BinanceChainKit.NetworkType.MainNet
 
-        val kit = BinanceChainKit.instance(App.instance, accountType.words, accountType.passphrase, account.id, networkType)
+        val kit = BinanceChainKit.instance(io.horizontalsystems.bankwallet.core.App.instance, accountType.words, accountType.passphrase, account.id, networkType)
         kit.refresh()
 
         return kit

@@ -3,7 +3,6 @@ package io.horizontalsystems.bankwallet.core.storage
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.providers.CexDepositNetworkRaw
 import io.horizontalsystems.bankwallet.core.providers.CexWithdrawNetworkRaw
 import io.horizontalsystems.bankwallet.entities.nft.NftUid
@@ -36,7 +35,7 @@ class DatabaseConverters {
         if (value == null) return null
 
         return try {
-            SecretString(App.encryptionManager.decrypt(value))
+            SecretString(io.horizontalsystems.bankwallet.core.App.encryptionManager.decrypt(value))
         } catch (e: Exception) {
             null
         }
@@ -44,7 +43,7 @@ class DatabaseConverters {
 
     @TypeConverter
     fun encryptSecretString(secretString: SecretString?): String? {
-        return secretString?.value?.let { App.encryptionManager.encrypt(it) }
+        return secretString?.value?.let { io.horizontalsystems.bankwallet.core.App.encryptionManager.encrypt(it) }
     }
 
     // SecretList
@@ -54,7 +53,7 @@ class DatabaseConverters {
         if (value == null) return null
 
         return try {
-            SecretList(App.encryptionManager.decrypt(value).split(","))
+            SecretList(io.horizontalsystems.bankwallet.core.App.encryptionManager.decrypt(value).split(","))
         } catch (e: Exception) {
             null
         }
@@ -63,7 +62,7 @@ class DatabaseConverters {
     @TypeConverter
     fun encryptSecretList(secretList: SecretList?): String? {
         return secretList?.list?.joinToString(separator = ",")?.let {
-            App.encryptionManager.encrypt(it)
+            io.horizontalsystems.bankwallet.core.App.encryptionManager.encrypt(it)
         }
     }
 

@@ -3,7 +3,6 @@ package io.horizontalsystems.bankwallet.modules.balance
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import io.horizontalsystems.bankwallet.core.AdapterState
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.BalanceData
 import io.horizontalsystems.bankwallet.entities.Wallet
 import io.horizontalsystems.bankwallet.modules.address.AddressHandlerFactory
@@ -16,7 +15,7 @@ object BalanceModule {
     class AccountsFactory : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return BalanceAccountsViewModel(App.accountManager) as T
+            return BalanceAccountsViewModel(io.horizontalsystems.bankwallet.core.App.accountManager) as T
         }
     }
 
@@ -24,20 +23,20 @@ object BalanceModule {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val totalService = TotalService(
-                App.currencyManager,
-                App.marketKit,
-                App.baseTokenManager,
-                App.balanceHiddenManager
+                io.horizontalsystems.bankwallet.core.App.currencyManager,
+                io.horizontalsystems.bankwallet.core.App.marketKit,
+                io.horizontalsystems.bankwallet.core.App.baseTokenManager,
+                io.horizontalsystems.bankwallet.core.App.balanceHiddenManager
             )
             return BalanceViewModel(
                 BalanceService.getInstance("wallet"),
                 BalanceViewItemFactory(),
-                App.balanceViewTypeManager,
-                TotalBalance(totalService, App.balanceHiddenManager),
-                App.localStorage,
-                App.wc2Service,
-                App.wc2Manager,
-                AddressHandlerFactory(App.appConfigProvider.udnApiKey),
+                io.horizontalsystems.bankwallet.core.App.balanceViewTypeManager,
+                TotalBalance(totalService, io.horizontalsystems.bankwallet.core.App.balanceHiddenManager),
+                io.horizontalsystems.bankwallet.core.App.localStorage,
+                io.horizontalsystems.bankwallet.core.App.wc2Service,
+                io.horizontalsystems.bankwallet.core.App.wc2Manager,
+                AddressHandlerFactory(io.horizontalsystems.bankwallet.core.App.appConfigProvider.udnApiKey),
             ) as T
         }
     }
@@ -47,21 +46,21 @@ object BalanceModule {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val totalService = TotalService(
-                App.currencyManager,
-                App.marketKit,
-                App.baseTokenManager,
-                App.balanceHiddenManager
+                io.horizontalsystems.bankwallet.core.App.currencyManager,
+                io.horizontalsystems.bankwallet.core.App.marketKit,
+                io.horizontalsystems.bankwallet.core.App.baseTokenManager,
+                io.horizontalsystems.bankwallet.core.App.balanceHiddenManager
             )
 
             return BalanceCexViewModel(
-                TotalBalance(totalService, App.balanceHiddenManager),
-                App.localStorage,
-                App.balanceViewTypeManager,
+                TotalBalance(totalService, io.horizontalsystems.bankwallet.core.App.balanceHiddenManager),
+                io.horizontalsystems.bankwallet.core.App.localStorage,
+                io.horizontalsystems.bankwallet.core.App.balanceViewTypeManager,
                 BalanceViewItemFactory(),
-                BalanceCexRepositoryWrapper(App.cexAssetManager, App.connectivityManager),
-                BalanceXRateRepository("wallet", App.currencyManager, App.marketKit),
+                BalanceCexRepositoryWrapper(io.horizontalsystems.bankwallet.core.App.cexAssetManager, io.horizontalsystems.bankwallet.core.App.connectivityManager),
+                BalanceXRateRepository("wallet", io.horizontalsystems.bankwallet.core.App.currencyManager, io.horizontalsystems.bankwallet.core.App.marketKit),
                 BalanceCexSorter(),
-                App.cexProviderManager,
+                io.horizontalsystems.bankwallet.core.App.cexProviderManager,
             ) as T
         }
     }

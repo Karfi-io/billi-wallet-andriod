@@ -19,10 +19,10 @@ class AppLogger(private val scope: List<String> = listOf()) : KeyStoreManager.Lo
     }
 
     override fun info(message: String) {
-        AppLog.info(actionId, message)
+        io.horizontalsystems.bankwallet.core.AppLog.info(actionId, message)
     }
 
     override fun warning(message: String, e: Throwable) {
-        AppLog.warning(actionId, message, e)
+        io.horizontalsystems.bankwallet.core.AppLog.warning(actionId, message, e)
     }
 }

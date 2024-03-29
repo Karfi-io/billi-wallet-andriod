@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.modules.balance
 
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.entities.Currency
 import io.horizontalsystems.marketkit.models.CoinPrice
 import java.math.BigDecimal
@@ -57,9 +56,9 @@ object BalanceViewHelper {
         dimmed: Boolean
     ): DeemedValue<String> {
         val formatted = if (fullFormat) {
-            App.numberFormatter.formatCoinFull(balance, null, coinDecimals)
+            io.horizontalsystems.bankwallet.core.App.numberFormatter.formatCoinFull(balance, null, coinDecimals)
         } else {
-            App.numberFormatter.formatCoinShort(balance, null, coinDecimals)
+            io.horizontalsystems.bankwallet.core.App.numberFormatter.formatCoinShort(balance, null, coinDecimals)
         }
 
         return DeemedValue(formatted, dimmed, visible)
@@ -78,9 +77,9 @@ object BalanceViewHelper {
             val balanceFiat = balance.multiply(rate)
 
             if (fullFormat) {
-                App.numberFormatter.formatFiatFull(balanceFiat, currency.symbol)
+                io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatFull(balanceFiat, currency.symbol)
             } else {
-                App.numberFormatter.formatFiatShort(balanceFiat, currency.symbol, 8)
+                io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatShort(balanceFiat, currency.symbol, 8)
             }
         } ?: ""
 
@@ -89,7 +88,7 @@ object BalanceViewHelper {
 
     fun rateValue(coinPrice: CoinPrice?, currency: Currency, visible: Boolean): DeemedValue<String> {
         val value = coinPrice?.let {
-            App.numberFormatter.formatFiatFull(coinPrice.value, currency.symbol)
+            io.horizontalsystems.bankwallet.core.App.numberFormatter.formatFiatFull(coinPrice.value, currency.symbol)
         } ?: ""
 
         return DeemedValue(value, dimmed = coinPrice?.expired ?: false, visible = visible)

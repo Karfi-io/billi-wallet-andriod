@@ -90,8 +90,8 @@ fun BackupRecoveryPhraseScreen(navController: NavController, account: Account) {
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 title = stringResource(R.string.BackupRecoveryPhrase_ManualBackup),
-                icon = R.drawable.ic_edit_24,
-                iconTint = ComposeAppTheme.colors.dark,
+                icon = R.drawable.ic_file_24,
+
                 onClick = {
                     navController.slideFromBottom(
                         R.id.backupKeyFragment,

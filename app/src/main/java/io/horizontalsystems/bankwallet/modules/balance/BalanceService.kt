@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.modules.balance
 
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.Clearable
 import io.horizontalsystems.bankwallet.core.IAccountManager
 import io.horizontalsystems.bankwallet.core.ILocalStorage
@@ -205,13 +204,15 @@ class BalanceService(
     companion object {
         fun getInstance(tag: String): BalanceService {
             return BalanceService(
-                BalanceActiveWalletRepository(App.walletManager, App.evmSyncSourceManager),
-                BalanceXRateRepository(tag, App.currencyManager, App.marketKit),
-                BalanceAdapterRepository(App.adapterManager, BalanceCache(App.appDatabase.enabledWalletsCacheDao())),
-                App.localStorage,
-                App.connectivityManager,
+                BalanceActiveWalletRepository(io.horizontalsystems.bankwallet.core.App.walletManager, io.horizontalsystems.bankwallet.core.App.evmSyncSourceManager),
+                BalanceXRateRepository(tag, io.horizontalsystems.bankwallet.core.App.currencyManager, io.horizontalsystems.bankwallet.core.App.marketKit),
+                BalanceAdapterRepository(
+                    io.horizontalsystems.bankwallet.core.App.adapterManager, BalanceCache(
+                        io.horizontalsystems.bankwallet.core.App.appDatabase.enabledWalletsCacheDao())),
+                io.horizontalsystems.bankwallet.core.App.localStorage,
+                io.horizontalsystems.bankwallet.core.App.connectivityManager,
                 BalanceSorter(),
-                App.accountManager
+                io.horizontalsystems.bankwallet.core.App.accountManager
             )
 
         }

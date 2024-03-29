@@ -342,8 +342,8 @@ private fun ButtonsRow(viewItem: BalanceViewItem, navController: NavController, 
         } else {
             ButtonPrimaryYellowWithIcon(
                 modifier = Modifier.weight(1f),
-                icon = R.drawable.ic_arrow_up_right_24,
                 title = stringResource(R.string.Balance_Send),
+                icon = R.drawable.ic_arrow_up_right_24,
                 onClick = {
                     val sendTitle = Translator.getString(R.string.Send_Title, viewItem.wallet.token.fullCoin.coin.code)
                     navController.slideFromRight(

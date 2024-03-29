@@ -1,5 +1,6 @@
 package io.horizontalsystems.bankwallet.core.adapters
 
+import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.ICoinManager
 import io.horizontalsystems.bankwallet.core.managers.EvmKitWrapper
 import io.horizontalsystems.bankwallet.core.managers.EvmLabelManager

@@ -1,12 +1,11 @@
 package io.horizontalsystems.bankwallet.core.providers
 
 import com.google.gson.annotations.SerializedName
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.managers.APIClient
 import retrofit2.http.GET
 
 class EvmLabelProvider {
-    private val apiURL = App.appConfigProvider.marketApiBaseUrl + "/v1/"
+    private val apiURL = io.horizontalsystems.bankwallet.core.App.appConfigProvider.marketApiBaseUrl + "/v1/"
     private val apiService: HsLabelApi = APIClient.retrofit(apiURL, 60).create(HsLabelApi::class.java)
 
     suspend fun updatesStatus(): UpdatesStatus = apiService.updatesStatus()

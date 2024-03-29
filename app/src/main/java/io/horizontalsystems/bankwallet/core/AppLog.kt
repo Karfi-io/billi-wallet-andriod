@@ -16,14 +16,17 @@ object AppLog {
     }
 
     fun info(actionId: String, message: String) {
-        executor.submit {
-            logsDao.insert(LogEntry(System.currentTimeMillis(), Log.INFO, actionId, message))
+        io.horizontalsystems.bankwallet.core.AppLog.executor.submit {
+            io.horizontalsystems.bankwallet.core.AppLog.logsDao.insert(LogEntry(System.currentTimeMillis(), Log.INFO, actionId, message))
         }
     }
 
     fun warning(actionId: String, message: String, e: Throwable) {
-        executor.submit {
-            logsDao.insert(LogEntry(System.currentTimeMillis(), Log.WARN, actionId, message + ": " + getStackTraceString(e)))
+        io.horizontalsystems.bankwallet.core.AppLog.executor.submit {
+            io.horizontalsystems.bankwallet.core.AppLog.logsDao.insert(LogEntry(System.currentTimeMillis(), Log.WARN, actionId, message + ": " + io.horizontalsystems.bankwallet.core.AppLog.getStackTraceString(
+                e
+            )
+            ))
         }
     }
 
@@ -34,12 +37,12 @@ object AppLog {
     fun getLog(): Map<String, Any> {
         val res = mutableMapOf<String, MutableMap<String, String>>()
 
-        logsDao.getAll().forEach { logEntry ->
+        io.horizontalsystems.bankwallet.core.AppLog.logsDao.getAll().forEach { logEntry ->
             if (!res.containsKey(logEntry.actionId)) {
                 res[logEntry.actionId] = mutableMapOf()
             }
 
-            val logMessage = sdf.format(Date(logEntry.date)) + " " + logEntry.message
+            val logMessage = io.horizontalsystems.bankwallet.core.AppLog.sdf.format(Date(logEntry.date)) + " " + logEntry.message
 
             res[logEntry.actionId]?.set(logEntry.id.toString(), logMessage)
         }

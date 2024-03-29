@@ -2,7 +2,6 @@ package io.horizontalsystems.bankwallet.core.managers
 
 import android.os.Handler
 import android.os.Looper
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.UnsupportedAccountException
 import io.horizontalsystems.bankwallet.core.providers.AppConfigProvider
 import io.horizontalsystems.bankwallet.entities.Account
@@ -78,7 +77,7 @@ class TronKitManager(
         val signer = Signer.getInstance(seed, network)
 
         val kit = TronKit.getInstance(
-            application = App.instance,
+            application = io.horizontalsystems.bankwallet.core.App.instance,
             walletId = account.id,
             seed = seed,
             network = network,
@@ -95,7 +94,7 @@ class TronKitManager(
         val address = accountType.address
 
         val kit = TronKit.getInstance(
-            application = App.instance,
+            application = io.horizontalsystems.bankwallet.core.App.instance,
             address = Address.fromBase58(address),
             network = network,
             walletId = account.id,

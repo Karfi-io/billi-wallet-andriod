@@ -60,7 +60,6 @@ import io.horizontalsystems.bankwallet.modules.sendtokenselect.SendTokenSelectFr
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 import io.horizontalsystems.bankwallet.ui.compose.HSSwipeRefresh
 import io.horizontalsystems.bankwallet.ui.compose.components.ButtonPrimaryCircle
-import io.horizontalsystems.bankwallet.ui.compose.components.ButtonPrimaryYellowWithIcon
 import io.horizontalsystems.bankwallet.ui.compose.components.ButtonSecondaryCircle
 import io.horizontalsystems.bankwallet.ui.compose.components.ButtonSecondaryTransparent
 import io.horizontalsystems.bankwallet.ui.compose.components.DoubleText
@@ -220,15 +219,16 @@ fun BalanceItems(
                         modifier = Modifier.padding(horizontal = 24.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        ButtonPrimaryYellowWithIcon(
-                            modifier = Modifier.weight(1f),
+                        HSpacer(85.dp)
+
+                        ButtonPrimaryCircle(
                             icon = R.drawable.ic_arrow_up_right_24,
-                            title = stringResource(R.string.Balance_Send),
+                            contentDescription  = stringResource(R.string.Balance_Send),
                             onClick = {
                                 navController.slideFromRight(R.id.sendTokenSelectFragment)
                             }
                         )
-                        HSpacer(8.dp)
+                        HSpacer(15.dp)
                         ButtonPrimaryCircle(
                             icon = R.drawable.ic_arrow_down_left_24,
                             contentDescription = stringResource(R.string.Balance_Receive),
@@ -254,7 +254,7 @@ fun BalanceItems(
                                 }
                             },
                         )
-                        HSpacer(8.dp)
+                        HSpacer(15.dp)
                         ButtonPrimaryCircle(
                             icon = R.drawable.ic_swap_24,
                             contentDescription = stringResource(R.string.Swap),
@@ -432,6 +432,8 @@ fun TotalBalanceRow(
                 onClickSubtitle = onClickSubtitle,
             )
         }
+
+        else -> {}
     }
 }
 

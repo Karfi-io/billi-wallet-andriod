@@ -20,14 +20,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.BaseActivity
 import io.horizontalsystems.bankwallet.modules.main.MainModule
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
@@ -42,7 +40,7 @@ class IntroActivity : BaseActivity() {
 
     private val nightMode by lazy {
         val uiMode =
-            App.instance.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
+            io.horizontalsystems.bankwallet.core.App.instance.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
         uiMode == Configuration.UI_MODE_NIGHT_YES
     }
 
@@ -70,14 +68,6 @@ private fun IntroScreen(viewModel: IntroViewModel, nightMode: Boolean, closeActi
     val pageCount = 3
     val pagerState = rememberPagerState(initialPage = 0) { pageCount }
     ComposeAppTheme {
-        Box {
-            Image(
-                painter = painterResource(if (nightMode) R.drawable.ic_intro_background else R.drawable.ic_intro_background_light),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
-            )
-        }
         HorizontalPager(
             modifier = Modifier.fillMaxSize(),
             state = pagerState,

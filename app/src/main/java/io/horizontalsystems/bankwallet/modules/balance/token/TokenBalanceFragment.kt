@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.navGraphViewModels
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.BaseComposeFragment
 import io.horizontalsystems.bankwallet.entities.Wallet
 import io.horizontalsystems.bankwallet.modules.transactions.TransactionsModule
@@ -20,7 +19,7 @@ class TokenBalanceFragment : BaseComposeFragment() {
     override fun GetContent(navController: NavController) {
         val wallet = requireArguments().parcelable<Wallet>(WALLET_KEY)
         if (wallet == null) {
-            Toast.makeText(App.instance, "Wallet is Null", Toast.LENGTH_SHORT).show()
+            Toast.makeText(io.horizontalsystems.bankwallet.core.App.instance, "Wallet is Null", Toast.LENGTH_SHORT).show()
             navController.popBackStack()
             return
         }

@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.entities
 
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.marketkit.models.Coin
 import io.horizontalsystems.marketkit.models.Token
 import java.math.BigDecimal
@@ -25,7 +24,7 @@ data class CoinValue(val coin: Coin, val decimal: Int, val value: BigDecimal) {
     }
 
     fun getFormattedFull(): String {
-        return App.numberFormatter.formatCoinFull(value, coin.code, 8)
+        return io.horizontalsystems.bankwallet.core.App.numberFormatter.formatCoinFull(value, coin.code, 8)
     }
 }
 

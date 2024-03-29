@@ -5,7 +5,6 @@ import androidx.navigation.NavController
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import io.horizontalsystems.bankwallet.R
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.slideFromBottom
 import io.horizontalsystems.bankwallet.entities.Faq
 import io.horizontalsystems.bankwallet.entities.FaqMap
@@ -18,7 +17,7 @@ import java.net.URL
 
 object FaqManager {
 
-    private val faqListUrl = App.appConfigProvider.faqUrl
+    private val faqListUrl = io.horizontalsystems.bankwallet.core.App.appConfigProvider.faqUrl
 
     const val faqPathMigrationRequired = "management/migration_required.md"
     const val faqPathMigrationRecommended = "management/migration_recommended.md"

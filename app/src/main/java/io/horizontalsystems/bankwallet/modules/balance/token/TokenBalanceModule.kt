@@ -2,7 +2,6 @@ package io.horizontalsystems.bankwallet.modules.balance.token
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.entities.Wallet
 import io.horizontalsystems.bankwallet.modules.balance.BalanceAdapterRepository
 import io.horizontalsystems.bankwallet.modules.balance.BalanceCache
@@ -23,18 +22,20 @@ class TokenBalanceModule {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val balanceService = TokenBalanceService(
                 wallet,
-                BalanceXRateRepository("wallet", App.currencyManager, App.marketKit),
-                BalanceAdapterRepository(App.adapterManager, BalanceCache(App.appDatabase.enabledWalletsCacheDao())),
+                BalanceXRateRepository("wallet", io.horizontalsystems.bankwallet.core.App.currencyManager, io.horizontalsystems.bankwallet.core.App.marketKit),
+                BalanceAdapterRepository(
+                    io.horizontalsystems.bankwallet.core.App.adapterManager, BalanceCache(
+                        io.horizontalsystems.bankwallet.core.App.appDatabase.enabledWalletsCacheDao())),
             )
 
             val tokenTransactionsService = TokenTransactionsService(
                 wallet,
-                TransactionRecordRepository(App.transactionAdapterManager),
-                TransactionsRateRepository(App.currencyManager, App.marketKit),
-                TransactionSyncStateRepository(App.transactionAdapterManager),
-                App.contactsRepository,
-                NftMetadataService(App.nftMetadataManager),
-                App.spamManager
+                TransactionRecordRepository(io.horizontalsystems.bankwallet.core.App.transactionAdapterManager),
+                TransactionsRateRepository(io.horizontalsystems.bankwallet.core.App.currencyManager, io.horizontalsystems.bankwallet.core.App.marketKit),
+                TransactionSyncStateRepository(io.horizontalsystems.bankwallet.core.App.transactionAdapterManager),
+                io.horizontalsystems.bankwallet.core.App.contactsRepository,
+                NftMetadataService(io.horizontalsystems.bankwallet.core.App.nftMetadataManager),
+                io.horizontalsystems.bankwallet.core.App.spamManager
             )
 
             return TokenBalanceViewModel(
@@ -42,9 +43,9 @@ class TokenBalanceModule {
                 balanceService,
                 BalanceViewItemFactory(),
                 tokenTransactionsService,
-                TransactionViewItemFactory(App.evmLabelManager, App.contactsRepository, App.balanceHiddenManager),
-                App.balanceHiddenManager,
-                App.connectivityManager
+                TransactionViewItemFactory(io.horizontalsystems.bankwallet.core.App.evmLabelManager, io.horizontalsystems.bankwallet.core.App.contactsRepository, io.horizontalsystems.bankwallet.core.App.balanceHiddenManager),
+                io.horizontalsystems.bankwallet.core.App.balanceHiddenManager,
+                io.horizontalsystems.bankwallet.core.App.connectivityManager
             ) as T
         }
     }

@@ -2,7 +2,6 @@ package io.horizontalsystems.bankwallet.core.managers
 
 import android.os.Handler
 import android.os.Looper
-import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.UnsupportedAccountException
 import io.horizontalsystems.bankwallet.core.subscribeIO
 import io.horizontalsystems.bankwallet.core.supportedNftTypes
@@ -125,7 +124,7 @@ class EvmKitManager(
         }
 
         val evmKit = EthereumKit.getInstance(
-            App.instance,
+            io.horizontalsystems.bankwallet.core.App.instance,
             address,
             chain,
             syncSource.rpcSource,
@@ -147,7 +146,7 @@ class EvmKitManager(
         var nftKit: NftKit? = null
         val supportedNftTypes = blockchainType.supportedNftTypes
         if (supportedNftTypes.isNotEmpty()) {
-            val nftKitInstance = NftKit.getInstance(App.instance, evmKit)
+            val nftKitInstance = NftKit.getInstance(io.horizontalsystems.bankwallet.core.App.instance, evmKit)
             supportedNftTypes.forEach {
                 when (it) {
                     NftType.Eip721 -> {

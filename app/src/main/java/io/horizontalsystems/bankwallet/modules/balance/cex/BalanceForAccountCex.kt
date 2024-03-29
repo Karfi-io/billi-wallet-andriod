@@ -1,6 +1,5 @@
 package io.horizontalsystems.bankwallet.modules.balance.cex
 
-import androidx.compose.animation.*
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

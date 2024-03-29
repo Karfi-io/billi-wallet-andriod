@@ -2,7 +2,6 @@ package io.horizontalsystems.bankwallet.modules.settings.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import io.horizontalsystems.bankwallet.core.App
 
 object MainSettingsModule {
 
@@ -10,20 +9,20 @@ object MainSettingsModule {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val service = MainSettingsService(
-                App.backupManager,
-                App.languageManager,
-                App.systemInfoManager,
-                App.currencyManager,
-                App.termsManager,
-                App.pinComponent,
-                App.wc2SessionManager,
-                App.wc2Manager,
-                App.accountManager,
-                App.appConfigProvider,
+                io.horizontalsystems.bankwallet.core.App.backupManager,
+                io.horizontalsystems.bankwallet.core.App.languageManager,
+                io.horizontalsystems.bankwallet.core.App.systemInfoManager,
+                io.horizontalsystems.bankwallet.core.App.currencyManager,
+                io.horizontalsystems.bankwallet.core.App.termsManager,
+                io.horizontalsystems.bankwallet.core.App.pinComponent,
+                io.horizontalsystems.bankwallet.core.App.wc2SessionManager,
+                io.horizontalsystems.bankwallet.core.App.wc2Manager,
+                io.horizontalsystems.bankwallet.core.App.accountManager,
+                io.horizontalsystems.bankwallet.core.App.appConfigProvider,
             )
             val viewModel = MainSettingsViewModel(
                 service,
-                App.appConfigProvider.companyWebPageLink,
+                io.horizontalsystems.bankwallet.core.App.appConfigProvider.companyWebPageLink,
             )
 
             return viewModel as T

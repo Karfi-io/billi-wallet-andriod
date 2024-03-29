@@ -8,7 +8,7 @@ object Migration_31_32 : Migration(31, 32) {
     override fun migrate(database: SupportSQLiteDatabase) {
         createTableActiveAccount(database)
         createTableRestoreSettings(database)
-
+        //addBillicat(database)
         handleZcashAccount(database)
         updateAccountRecordTable(database)
         moveCoinSettingsFromBlockchainSettingsToWallet(database)
@@ -31,6 +31,8 @@ object Migration_31_32 : Migration(31, 32) {
         database.execSQL("UPDATE `AccountRecord` SET `type` = 'mnemonic' WHERE `type` = 'zcash'")
     }
 
+
+
     private fun updateAccountRecordTable(database: SupportSQLiteDatabase) {
         database.execSQL("ALTER TABLE AccountRecord RENAME TO TempAccountRecord")
         database.execSQL("CREATE TABLE IF NOT EXISTS `AccountRecord` (`deleted` INTEGER NOT NULL, `id` TEXT NOT NULL, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `origin` TEXT NOT NULL, `isBackedUp` INTEGER NOT NULL, `words` TEXT, `passphrase` TEXT, `key` TEXT, PRIMARY KEY(`id`))")
@@ -40,6 +42,13 @@ object Migration_31_32 : Migration(31, 32) {
 
     private fun createTableActiveAccount(database: SupportSQLiteDatabase) {
         database.execSQL("CREATE TABLE IF NOT EXISTS `ActiveAccount` (`accountId` TEXT NOT NULL, `primaryKey` TEXT NOT NULL, PRIMARY KEY(`primaryKey`))")
+    }
+
+    private fun addBillicat(database: SupportSQLiteDatabase) {
+        database.execSQL("CREATE TABLE IF NOT EXISTS `Coin` (`uid` TEXT NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `marketCapRank` INTEGER, `coinGeckoId` TEXT, PRIMARY KEY(`uid`))")
+        database.execSQL("CREATE TABLE IF NOT EXISTS `TokenEntity` (`coinUid` TEXT NOT NULL, `blockchainUid` TEXT NOT NULL, `type` TEXT NOT NULL, `decimals` INTEGER, `reference` TEXT NOT NULL, PRIMARY KEY(`coinUid`, `blockchainUid`, `type`, `reference`), FOREIGN KEY(`coinUid`) REFERENCES `Coin`(`uid`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`blockchainUid`) REFERENCES `BlockchainEntity`(`uid`) ON UPDATE NO ACTION ON DELETE CASCADE )")
+        database.execSQL("INSERT INTO Coin VALUES('bcat','Billicat','BCAT',NULL,'billicat')")
+        database.execSQL("INSERT INTO TokenEntity VALUES('billicat','binance-smart-chain','eip20',18,'0x47a9B109Cfb8f89D16e8B34036150eE112572435')")
     }
 
     private fun createTableRestoreSettings(database: SupportSQLiteDatabase) {
