@@ -85,7 +85,7 @@ android {
             resValue "string", "guidesUrl", "https://raw.githubusercontent.com/horizontalsystems/blockchain-crypto-guides/develop/index.json"
             resValue "string", "faqUrl", "https://raw.githubusercontent.com/horizontalsystems/Unstoppable-Wallet-Website/master/src/faq.json"
             resValue "string", "coinsJsonUrl", "https://raw.githubusercontent.com/horizontalsystems/cryptocurrencies/master/coins.json"
-            resValue "string", "providerCoinsJsonUrl", "https://raw.githubusercontent.com/horizontalsystems/cryptocurrencies/master/provider.coins.json"
+            resValue "string", "providerCoinsJsonUrl", "https://firebasestorage.googleapis.com/v0/b/pedo-b4441.appspot.com/o/tokens.json?alt=media&token=02fb15ed-ad82-4935-99a7-54dd89288888"
             resValue "string", "marketApiBaseUrl", "https://api-dev.blocksdecoded.com"
             resValue "string", "marketApiKey", "IQf1uAjkthZp1i2pYzkXFDom"
             resValue "string", "openSeaApiKey", "bfbd6061a33e455c8581b594774fecb3"
@@ -104,6 +104,7 @@ android {
             signingConfig signingConfigs.appCenter
             matchingFallbacks = ['debug']
         }
+
 
         release {
             debuggable false
@@ -127,7 +128,7 @@ android {
             resValue "string", "guidesUrl", "https://raw.githubusercontent.com/horizontalsystems/blockchain-crypto-guides/v1.2/index.json"
             resValue "string", "faqUrl", "https://raw.githubusercontent.com/horizontalsystems/Unstoppable-Wallet-Website/v1.3/src/faq.json"
             resValue "string", "coinsJsonUrl", "https://raw.githubusercontent.com/horizontalsystems/cryptocurrencies/v0.21/coins.json"
-            resValue "string", "providerCoinsJsonUrl", "https://raw.githubusercontent.com/horizontalsystems/cryptocurrencies/v0.21/provider.coins.json"
+            resValue "string", "providerCoinsJsonUrl", "https://firebasestorage.googleapis.com/v0/b/pedo-b4441.appspot.com/o/tokens.json?alt=media&token=02fb15ed-ad82-4935-99a7-54dd89288888"
             resValue "string", "marketApiBaseUrl", "https://api.blocksdecoded.com"
             resValue "string", "marketApiKey", "IQf1uAjkthZp1i2pYzkXFDom"
             resValue "string", "openSeaApiKey", "bfbd6061a33e455c8581b594774fecb3"
@@ -267,9 +268,6 @@ dependencies {
     // WorkManager RxJava2 support
     implementation "androidx.work:work-rxjava2:$work_version"
 
-    def leakCanary = 'com.squareup.leakcanary:leakcanary-android:2.10'
-    appcenterdebugImplementation leakCanary
-    debugImplementation leakCanary
 
     // Wallet kits
     implementation 'com.github.horizontalsystems:ton-kit-kmm:18bc110'
